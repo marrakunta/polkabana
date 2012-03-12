@@ -27,14 +27,23 @@ opts.each do |opt, arg|
 		filter_extents = arg.to_i
 		when '--help'
 		puts <<-EOF
--h, --help:
+
+listfrag - recursively lists all files in current directory sorted by number of extents. Uses filefrag.
+
+-h, --help
    show help
 
--s, --size x:
-   skip files that are smaller then x bytes. Can be in human readable format (e.g. 10M, 2G)
+-s, --size x
+   skip files that are smaller than x bytes. Can be in human readable format (e.g. 10M, 2G)
 
--e, --extents x:
-   skip files that have less then x extents
+-e, --extents x
+   skip files that have less than x extents
+
+Example
+
+   listfrag.rb -s 1G -e 10
+   List all files recursively in current directory with file size >= 1G and number of extents >= 10
+
 EOF
 		exit
 	end
